@@ -1,0 +1,28 @@
+/*
+gradle file that will run the java file
+*/
+apply plugin: 'application'
+apply plugin: 'java'
+mainClassName = "org.gradle.sample.Main"
+
+repositories{
+	mavenCentral()
+}
+
+dependencies{
+	testCompile group:'junit', name:'junit', version:'4.12'
+}
+task raven(type: JavaExec){
+	main = 'RunEdgeConvert'
+	classpath = sourceSets.main.runtimeClasspath
+}
+
+sourceSets{
+	main{
+		java{
+			srcDirs 'src/java'
+		}
+	}
+}
+
+
